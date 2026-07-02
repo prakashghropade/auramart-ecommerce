@@ -45,7 +45,9 @@ module "eks" {
   }
 
 
+
   cluster_security_group_additional_rules = {
+
     access_for_bastion_jenkins_hosts = {
       cidr_blocks = ["0.0.0.0/0"]
       description = "Allow all HTTPS traffic from jenkins and Bastion host"
@@ -74,15 +76,13 @@ module "eks" {
   control_plane_subnet_ids = module.vpc.private_subnets
 
   # EKS Managed Node Group(s)
-
   eks_managed_node_group_defaults = {
 
-    instance_types = ["t3.large"]
+    instance_types = ["t3.medium"]
 
     attach_cluster_primary_security_group = true
 
   }
-
 
 
   eks_managed_node_groups = {
@@ -92,14 +92,14 @@ module "eks" {
       max_size     = 3
       desired_size = 1
 
-      instance_types = ["t3.large"]
+      instance_types = ["t3.medium"]
       capacity_type  = "SPOT"
 
-      disk_size                  = 35
+      disk_size                  = 12
       use_custom_launch_template = false # Important to apply disk size!
 
       remote_access = {
-        ec2_ssh_key               = resource.aws_key_pair.deployer.key_name
+        ec2_ssh_key               = aws_key_pair.deployer.key_name
         source_security_group_ids = [aws_security_group.node_group_remote_access.id]
       }
 
@@ -112,10 +112,8 @@ module "eks" {
   }
 
   tags = local.tags
-
-
 }
-
+ 
 data "aws_instances" "eks_nodes" {
   instance_tags = {
     "eks:cluster-name" = module.eks.cluster_name

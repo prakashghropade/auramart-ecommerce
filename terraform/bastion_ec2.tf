@@ -46,4 +46,4 @@ resource "aws_instance" "bastion_host" {
     volume_type = "gp3"
   }
 
-} 
+}
