@@ -4,24 +4,23 @@ metadata:
   name: easyshop-ingress
   namespace: easyshop
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    alb.ingress.kubernetes.io/group.name: auramat-app-lb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:elasticloadbalancing:ap-south-1:362954626868:loadbalancer/app/k8s-auramatapplb-daef945599/2c426bfb9b430c4b
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+    kubernetes.io/ingress.class: alb
 spec:
-  tls:
-  - hosts:
-    - prakashghorpade.shop
-    secretName: easyshop-tls-secret  # Cert-Manager will manage this
   rules:
   - host: prakashghorpade.shop
     http:
-      paths: 
+      paths:
       - path: /
         pathType: Prefix
-        backend: 
+        backend:
           service:
             name: easyshop-service
-            port: 
+            port:
               number: 80
-
