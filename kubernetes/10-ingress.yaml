@@ -6,7 +6,7 @@ metadata:
   annotations:
     alb.ingress.kubernetes.io/group.name: auramat-app-lb
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:elasticloadbalancing:ap-south-1:362954626868:loadbalancer/app/k8s-auramatapplb-daef945599/2c426bfb9b430c4b
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-south-1:362954626868:certificate/7194a7ee-a881-4c15-8353-7067f096d93d
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/backend-protocol: HTTP
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}, {"HTTPS":443}]'
