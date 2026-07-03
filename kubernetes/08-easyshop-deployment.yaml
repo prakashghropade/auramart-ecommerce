@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: easyshop
-          image: prakashghorpade2001/auramart-app:1
+          image: prakashghorpade2001/auramart-app:12
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
