@@ -28,7 +28,7 @@ WORKDIR /app
 # copy the necessory files from the builder stage
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static/ ./.next/static
-COPY --FROM=builder /app/public ./public
+COPY --from=builder /app/public ./public
 
 # set the environment variables
 ENV NODE_ENV=production 
