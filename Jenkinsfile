@@ -5,11 +5,11 @@ pipeline {
     
     environment {
         // Update the main app image name to match the deployment file
-        DOCKER_IMAGE_NAME = 'prakashghorpade2001/easyshop-app'
-        DOCKER_MIGRATION_IMAGE_NAME = 'prakashghorpade2001/easyshop-migration'
+        DOCKER_IMAGE_NAME = 'prakashghorpade2001/auramart-app'
+        DOCKER_MIGRATION_IMAGE_NAME = 'prakashghorpade2001/auramart-migration'
         DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
         GITHUB_CREDENTIALS = credentials('github-credentials')
-        GIT_BRANCH = "master"
+        GIT_BRANCH = "main"
     }
      
     stages {
@@ -24,7 +24,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    clone("https://github.com/lax66/tws-e-commerce-app_hackathon.git","master")
+                    clone("https://github.com/prakashghropade/auramart-ecommerce.git","main")
                 }
             }
         }

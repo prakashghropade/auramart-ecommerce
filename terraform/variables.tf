@@ -11,7 +11,7 @@ variable "ami_id" {
 variable "instance_type" {
   description = "Instance type for the EC2 instance"
   default     = "t3.medium"
-}
+} 
 
 variable "my_enviroment" {
   description = "Instance type for the EC2 instance"

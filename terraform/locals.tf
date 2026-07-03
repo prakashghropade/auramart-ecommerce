@@ -10,5 +10,4 @@ locals {
   tags = {
     example = local.name
   }
-
 }
