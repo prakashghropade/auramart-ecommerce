@@ -95,7 +95,7 @@ module "eks" {
       instance_types = ["t3.medium"]
       capacity_type  = "SPOT"
 
-      disk_size                  = 12
+      disk_size                  = 20
       use_custom_launch_template = false # Important to apply disk size!
 
       remote_access = {
