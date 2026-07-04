@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: db-migration
-  namespace: easyshop
+  namespace: auramart
 spec:
   template:
     spec:
@@ -12,5 +12,5 @@ spec:
         imagePullPolicy: Always
         env:
         - name: MONGODB_URI
-          value: "mongodb://mongodb-service:27017/easyshop"
+          value: "mongodb://mongodb-service:27017/auramart"
       restartPolicy: OnFailure

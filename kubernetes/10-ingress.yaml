@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: easyshop-ingress
-  namespace: easyshop
+  name: auramart-ingress
+  namespace: auramart
   annotations:
     alb.ingress.kubernetes.io/group.name: auramat-app-lb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -21,6 +21,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: easyshop-service
+            name: auramart-service
             port:
               number: 80

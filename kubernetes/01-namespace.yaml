@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: easyshop
+  name: auramart
   labels:
-    name: easyshop
+    name: auramart
     environment: production
