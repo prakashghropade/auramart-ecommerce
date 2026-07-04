@@ -4,7 +4,6 @@ pipeline {
     agent any
     
     environment {
-        // Update the main app image name to match the deployment file
         DOCKER_IMAGE_NAME = 'prakashghorpade2001/auramart-app'
         DOCKER_MIGRATION_IMAGE_NAME = 'prakashghorpade2001/auramart-migration'
         DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
@@ -71,7 +70,6 @@ pipeline {
             steps {
                 script {
                     // Create directory for results
-                  
                     trivy_scan()
                     
                 }
@@ -106,7 +104,6 @@ pipeline {
             }
         }
         
-        // Add this new stage
         stage('Update Kubernetes Manifests') {
             steps {
                 script {
@@ -114,7 +111,7 @@ pipeline {
                         imageTag: env.DOCKER_IMAGE_TAG,
                         manifestsPath: 'kubernetes',
                         gitCredentials: 'github-credentials',
-                        gitUserName: 'Jenkins CI',
+                        gitUserName: 'prakashghropade',
                         gitUserEmail: 'prakashghorpade2001@gmail.com'
                     )
                 }
