@@ -6,3 +6,12 @@
 #     use_lockfile = true
 #   }
 # }
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 6.0"
+    }
+  }
+}
